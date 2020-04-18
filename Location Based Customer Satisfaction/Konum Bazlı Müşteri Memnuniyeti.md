@@ -3,12 +3,7 @@
 Bu proje Wolkswagen'in yeni Passat modelinin konum bazlı müşteri memnuniyetini twitter üzerinden hesaplamaktadır. Projenin genel işleyişini aşağıdaki diyagram ile gösterebiliriz;
 
 
-```mermaid
-graph LR
-A[Labeled Sentences] --> L[Preprocessing] --> E{LSTM}
-B[Corpora] -- Word2Vec--> D(DeepText) --> E --> G(Prediction)
-C[Twitter API] -- #Passat --> F[Tweets] --> H[Preprocessing] --> G
-```
+<img src="https://github.com/suleymanbalaban3/Sentiment-Analyses/blob/master/Location%20Based%20Customer%20Satisfaction/images/Diagram.PNG?raw=true">
 
 
 # Etiketlenmiş Cümlelerin Hazırlanması
@@ -28,7 +23,7 @@ Programın daha başarılı bir şekilde çalışması için metinler ön hazır
 Wikipedia Dump'ından bir den fazla dile ait metinler ayrı ayrı indirilmelidir. Her dil için oluşturulan bu Corpora'lar ayrı olarak **Word2Vec** derin öğrenme algoritması ile eğitilir ve böylece her bir sözcük için 200 boyutlu bir vektör elde edilmiş olur. Bu vektörler sözcüklerin anlamını ifade eder. Fakat etiketlenmiş cümlelerimiz ingilizce olduğu için diğer dillere ait vektörlerimiz ile aynı uzayda olmayacağı için tek bir dil desteğimiz olmuş olur. Bu sorunu **DeepText** algoritmasını kullanarak aşabiliriz.
 
 
-![](@attachment/Clipboard_2020-03-29-13-05-21.png)
+<img src="https://github.com/suleymanbalaban3/Sentiment-Analyses/blob/master/Location%20Based%20Customer%20Satisfaction/images/DeepText.PNG?raw=true">
 
 > Yukarıda gösterildiği gibi birden fazla dile ait metinler eğitilerek vektörleri elde edildikten sonra tek bir dilmiş gibi ifade edilmesini sağlaması için aynı uzayda ifade edilir. Böylece hem birden fazla dilde tweet analiz edilebilir ve hangi dilde yazıldığını bulmamıza gerek kalmaz.
 
